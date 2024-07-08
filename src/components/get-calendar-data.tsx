@@ -21,12 +21,9 @@ const GetCalendarData = () => {
 
   return (
     <section>
-      <SetLocalStorage storageKey={`currentYear`} value={year.toString()} />
+      <SetLocalStorage storageKey={`currentYear`} value={`${year}`} />
       <SetLocalStorage storageKey={`currentMonth`} value={monthName} />
-      <SetLocalStorage
-        storageKey={`currentDays`}
-        value={currentDay.toString()}
-      />
+      <SetLocalStorage storageKey={`currentDay`} value={`${currentDay}`} />
 
       <div className={style.date}>
         <p>Год: {year}</p>
