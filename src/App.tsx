@@ -5,7 +5,7 @@ const App = () => {
   return (
     <>
       <Hello />
-      <GetCalendar month={1} year={2024} />
+      <GetCalendar />
     </>
   );
 };

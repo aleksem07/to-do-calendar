@@ -19,3 +19,8 @@
     margin-inline: 5%;
   }
 }
+
+@mixin h2 {
+  font-size: $fz-48px;
+  line-height: 1.1;
+}
