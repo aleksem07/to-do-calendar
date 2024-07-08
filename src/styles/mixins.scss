@@ -10,6 +10,10 @@
   @media screen and (max-width: $width-desktop) {
     padding-inline: 5%;
   }
+
+  @media screen and (max-width: $width-mobile) {
+    padding-inline: 1%;
+  }
 }
 
 @mixin body_margin {
@@ -18,14 +22,35 @@
   @media screen and (max-width: $width-desktop) {
     margin-inline: 5%;
   }
+
+  @media screen and (max-width: $width-mobile) {
+    margin-inline: 1%;
+  }
+}
+
+@mixin h1 {
+  font-size: $fz-56px;
+  line-height: 1.1;
+
+  @media screen and (max-width: $width-tablet) {
+    font-size: $fz-44px;
+  }
 }
 
 @mixin h2 {
   font-size: $fz-48px;
   line-height: 1.1;
+
+  @media screen and (max-width: $width-tablet) {
+    font-size: $fz-36px;
+  }
 }
 
 @mixin h3 {
   font-size: $fz-36px;
   line-height: 1.1;
+
+  @media screen and (max-width: $width-tablet) {
+    font-size: $fz-28px;
+  }
 }

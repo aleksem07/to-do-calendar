@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
-  align-items: end;
+  align-items: center;
+  flex-direction: column;
 }
 
 .render_month {
@@ -11,4 +12,30 @@
 
 .render_year {
   @include h3;
+}
+
+.calendar {
+  width: 100%;
+  min-height: 60vh;
+  outline: 5px solid $color-light;
+}
+
+.calendar_list {
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  text-align: left;
+
+  @media screen and (max-width: $width-tablet) {
+    flex-direction: column;
+  }
+}
+
+.calendar_item {
+  min-width: 15%;
+  outline: 5px solid rgba(247, 9, 9, 0.589);
+  outline-offset: -3px;
+  cursor: pointer;
 }
