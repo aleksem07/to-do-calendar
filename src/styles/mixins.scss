@@ -1,0 +1,21 @@
+@mixin list_default {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin body_padding {
+  padding-inline: 10%;
+
+  @media screen and (max-width: $width-desktop) {
+    padding-inline: 5%;
+  }
+}
+
+@mixin body_margin {
+  margin-inline: 10%;
+
+  @media screen and (max-width: $width-desktop) {
+    margin-inline: 5%;
+  }
+}
