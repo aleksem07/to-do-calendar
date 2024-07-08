@@ -16,6 +16,7 @@
 
 #root {
   @include body_margin;
+  padding-block: 1.5rem;
   max-width: $width-max;
   width: 100%;
   min-width: $width-min;
