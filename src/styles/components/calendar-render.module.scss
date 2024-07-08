@@ -1,0 +1,51 @@
+.render {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  flex-direction: column;
+}
+
+.render_month {
+  @include h2;
+}
+
+.render_year {
+  @include h3;
+}
+
+.calendar {
+  width: 100%;
+  min-height: 60vh;
+}
+
+.calendar_list {
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  text-align: left;
+
+  @media screen and (max-width: $width-tablet) {
+    flex-direction: column;
+  }
+}
+
+.calendar_item {
+  min-width: 15%;
+  min-height: 2.5rem;
+  border-radius: 0 1rem;
+  box-shadow: inset 0 0 10px 10px $color-brand;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: inset 0 0 100px 10px $color-brand--add;
+    transition: box-shadow 0.3s ease;
+  }
+}
+
+.active_day {
+  box-shadow: inset 0 0 10px 10px $color-brand--add;
+}
