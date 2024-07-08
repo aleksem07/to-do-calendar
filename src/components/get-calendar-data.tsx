@@ -1,38 +1,36 @@
-import React from "react";
 import { MONTH_NAMES } from "../common/month-names";
 import SetLocalStorage from "./locale-storage/set-local-storage";
 import style from "@/styles/components/get-calendar-data.module.scss";
+import useMonthStore from "../store/date-store";
+import useDaysInMonth from "../store/days-in-month";
 
-interface IGetCalendarData {
-  year: number;
-  month: number;
-}
-const getDaysInMonth = (year: number, month: number): number => {
-  return new Date(year, month + 1, 0).getDate();
-};
+const GetCalendarData = () => {
+  const { year, month, currentDay, setMonth, setYear } = useMonthStore();
+  const { daysInMonth } = useDaysInMonth();
 
-const GetCalendarData: React.FC<IGetCalendarData> = ({ year, month }) => {
   if (month < 0) {
-    month = 11;
-    year--;
+    setMonth(11);
+    setYear(year - 1);
   }
   if (month > 11) {
-    month = 0;
-    year++;
+    setMonth(0);
+    setYear(year + 1);
   }
 
-  const days = getDaysInMonth(year, month);
   const monthName = MONTH_NAMES[month];
 
   return (
     <section>
       <SetLocalStorage storageKey={`currentYear`} value={year.toString()} />
       <SetLocalStorage storageKey={`currentMonth`} value={monthName} />
-      <SetLocalStorage storageKey={`currentDays`} value={days.toString()} />
+      <SetLocalStorage
+        storageKey={`currentDays`}
+        value={currentDay.toString()}
+      />
 
       <div className={style.date}>
         <p>Год: {year}</p>
-        <p>Дней в месяце: {days}</p>
+        <p>Дней в месяце: {daysInMonth}</p>
       </div>
     </section>
   );
