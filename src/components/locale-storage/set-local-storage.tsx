@@ -5,7 +5,10 @@ interface ILocalStorageProps {
   value: string;
 }
 
-const LocalStorage: React.FC<ILocalStorageProps> = ({ storageKey, value }) => {
+const SetLocalStorage: React.FC<ILocalStorageProps> = ({
+  storageKey,
+  value,
+}) => {
   useEffect(() => {
     localStorage.setItem(storageKey, value);
   }, [storageKey, value]);
@@ -13,4 +16,4 @@ const LocalStorage: React.FC<ILocalStorageProps> = ({ storageKey, value }) => {
   return null;
 };
 
-export default LocalStorage;
+export default SetLocalStorage;

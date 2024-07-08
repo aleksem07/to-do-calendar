@@ -1,9 +1,17 @@
 import style from "@/styles/components/calendar-render.module.scss";
+import React from "react";
+import { MONTH_NAMES } from "../common/month-names";
 
-const CalendarRender = () => {
+interface ICalendarRender {
+  month: number;
+}
+
+const CalendarRender: React.FC<ICalendarRender> = ({ month }) => {
   return (
     <section className={style.render}>
-      <h2 className={style.render_title}>Calendar</h2>
+      <h2 className={style.render_month}>{MONTH_NAMES[month]}</h2>
+
+      <div className={style.render}></div>
     </section>
   );
 };

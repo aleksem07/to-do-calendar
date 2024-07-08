@@ -24,3 +24,8 @@
   font-size: $fz-48px;
   line-height: 1.1;
 }
+
+@mixin h3 {
+  font-size: $fz-36px;
+  line-height: 1.1;
+}

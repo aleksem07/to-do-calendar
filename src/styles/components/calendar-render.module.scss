@@ -1,6 +1,14 @@
 .render {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: end;
 }
 
-.render_title {
+.render_month {
   @include h2;
+}
+
+.render_year {
+  @include h3;
 }
