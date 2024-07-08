@@ -8,7 +8,6 @@
 
 .render_month {
   @include h2;
-  text-shadow: 1px 1px 1px $color-brand--add;
 }
 
 .render_year {
@@ -41,7 +40,7 @@
   transition: box-shadow 0.3s ease;
 
   &:hover {
-    box-shadow: inset 0 0 10px 100px $color-brand;
+    box-shadow: inset 0 0 100px 10px $color-brand--add;
     transition: box-shadow 0.3s ease;
   }
 }
