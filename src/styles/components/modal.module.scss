@@ -26,6 +26,26 @@
   border-bottom: 1px solid $color-brand;
 }
 
-.modal_content {
-  margin-top: 20px;
+.modal_tasks {
+  padding-block: 1rem;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-bottom: 1px solid $color-brand;
+}
+
+.modal_task {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.modal_add {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.modal_add_input {
 }
