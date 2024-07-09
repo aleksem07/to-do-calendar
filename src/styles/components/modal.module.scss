@@ -39,8 +39,12 @@
 
 .modal_task {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: space-between;
+}
+
+.modal_task__complete {
+  margin-left: auto;
 }
 
 .modal_add {

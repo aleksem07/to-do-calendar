@@ -1,0 +1,53 @@
+@keyframes welcome {
+  0% {
+    transform: translateY(-115px);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes date {
+  0% {
+    transform: translateX(-115px);
+    opacity: 0;
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes month {
+  0% {
+    transform: translateX(115px);
+    opacity: 0;
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes day {
+  0% {
+    transform: scale(0);
+  }
+  75% {
+    transform: scale(105%);
+  }
+  100% {
+    transform: scale(100%);
+    opacity: 1;
+  }
+}

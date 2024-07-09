@@ -1,6 +1,7 @@
-.hello {
-}
+@import "@/styles/animation/loading.scss";
 
 .hello_title {
+  opacity: 0;
+  animation: welcome 0.5s forwards;
   @include h1;
 }

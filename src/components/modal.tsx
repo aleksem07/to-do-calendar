@@ -75,11 +75,18 @@ const Modal = () => {
                   <span
                     style={{
                       textDecoration: task.completed ? "line-through" : "none",
+                      color: task.completed ? "black" : "white",
                     }}
                     onClick={() => toggleTask(task.id)}
                   >
                     {task.text}
                   </span>
+                  <input
+                    className={style.modal_task__complete}
+                    type="checkbox"
+                    checked={task.completed ? true : false}
+                    onClick={() => toggleTask(task.id)}
+                  />
                   <button type="button" onClick={() => removeTask(task.id)}>
                     Удалить
                   </button>
