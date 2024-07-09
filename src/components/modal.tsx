@@ -1,7 +1,7 @@
 import style from "@/styles/components/modal.module.scss";
 import useModalStore from "../store/modal-store";
 import GetLocalStorage from "./locale-storage/get-local-storage";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import useTaskStore from "../store/task-store";
 
 const Modal = () => {
@@ -11,17 +11,26 @@ const Modal = () => {
 
   const clickDayStorage = GetLocalStorage("clickDay");
 
+  const handleCloseModal = useCallback(() => {
+    setIsOpen(false);
+  }, [setIsOpen]);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [isOpen]);
+      const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+          handleCloseModal();
+        }
+      };
+      window.addEventListener("keydown", handleKeyDown);
 
-  const handleCloseModal = () => {
-    setIsOpen(false);
-  };
+      return () => {
+        window.removeEventListener("keydown", handleKeyDown);
+        document.body.style.overflow = "auto";
+      };
+    }
+  }, [isOpen, handleCloseModal]);
 
   const handleModalClick = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
@@ -33,8 +42,16 @@ const Modal = () => {
 
   const handleAddTask = () => {
     if (!newTask.trim()) return;
-    addTask(newTask);
+    addTask(`${newTask[0].toUpperCase()}${newTask.slice(1)}`);
     setNewTask("");
+  };
+
+  const handleEnterKeyPress = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (event.key === "Enter") {
+      handleAddTask();
+    }
   };
 
   if (!isOpen) return null;
@@ -50,40 +67,50 @@ const Modal = () => {
           </button>
         </header>
 
-        <div className={style.modal_content}>
+        <ul className={style.modal_tasks}>
+          {tasks.map(task => (
+            <li className={style.modal_task} key={task.id}>
+              {task.id.startsWith(clickDayStorage) && (
+                <>
+                  <span
+                    style={{
+                      textDecoration: task.completed ? "line-through" : "none",
+                      color: task.completed ? "black" : "white",
+                    }}
+                    className={style.modal_task_text}
+                    onClick={() => toggleTask(task.id)}
+                  >
+                    {task.text}
+                  </span>
+                  <label className={style.modal_task__label}>
+                    <input
+                      className={style.modal_task__checkbox}
+                      type="checkbox"
+                      checked={task.completed ? true : false}
+                      onClick={() => toggleTask(task.id)}
+                    />
+                  </label>
+                  <button type="button" onClick={() => removeTask(task.id)}>
+                    Удалить
+                  </button>
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        <div className={style.modal_add}>
           <input
             type="text"
             value={newTask}
             onChange={e => setNewTask(e.target.value)}
             placeholder="Добавьте новую задачу"
+            className={style.modal_add_input}
+            onKeyDown={handleEnterKeyPress}
           />
           <button type="button" onClick={handleAddTask}>
             Добавить задачу
           </button>
-
-          <ul>
-            {tasks.map(task => (
-              <li key={task.id}>
-                {task.id.startsWith(clickDayStorage) && (
-                  <>
-                    <span
-                      style={{
-                        textDecoration: task.completed
-                          ? "line-through"
-                          : "none",
-                      }}
-                      onClick={() => toggleTask(task.id)}
-                    >
-                      {task.text}
-                    </span>
-                    <button type="button" onClick={() => removeTask(task.id)}>
-                      Удалить
-                    </button>
-                  </>
-                )}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </div>

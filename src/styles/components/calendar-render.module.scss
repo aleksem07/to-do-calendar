@@ -1,3 +1,5 @@
+@import "@/styles/animation/loading.scss";
+
 .render {
   display: flex;
   justify-content: center;
@@ -7,7 +9,9 @@
 }
 
 .render_month {
+  opacity: 0;
   @include h2;
+  animation: month 0.5s 0.35s forwards;
 }
 
 .render_year {
@@ -33,12 +37,18 @@
 }
 
 .calendar_item {
+  opacity: 0;
   min-width: 15%;
   min-height: 2.5rem;
   border-radius: 0 1rem;
   box-shadow: inset 0 0 10px 10px $color-brand;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
+  animation: day 0.4s 0.55s forwards;
+
+  &.incomplete_tasks {
+    background-color: $color-task-incomplete--70;
+  }
 
   &:hover {
     box-shadow: inset 0 0 100px 10px $color-brand--add-light;
@@ -48,4 +58,23 @@
 
 .active_day {
   box-shadow: inset 0 0 10px 10px $color-brand--add;
+}
+
+.day_and_weak {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.day_of_month {
+  font-weight: 500;
+  font-family: $font-inter;
+  color: $color-light--30;
+}
+
+.day {
+  color: $color-light--70;
+  font-size: 2rem;
+  font-weight: 500;
 }

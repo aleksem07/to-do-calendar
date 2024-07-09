@@ -68,3 +68,25 @@ ol {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+button {
+  border-radius: 8px;
+  background-color: $color-brand;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0.5rem;
+  box-shadow: 2px 2px 4px -1px $color-bcg-dark--70;
+
+  &:hover {
+    background-color: $color-brand-light;
+  }
+
+  &:active {
+    box-shadow: inset 2px 2px 4px -1px $color-bcg-dark--70;
+  }
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 8px;
+}
