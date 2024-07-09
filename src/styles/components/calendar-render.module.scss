@@ -40,6 +40,10 @@
   cursor: pointer;
   transition: box-shadow 0.3s ease;
 
+  &.incomplete_tasks {
+    background-color: $color-task-incomplete--70;
+  }
+
   &:hover {
     box-shadow: inset 0 0 100px 10px $color-brand--add-light;
     transition: box-shadow 0.3s ease;
