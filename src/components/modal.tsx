@@ -77,16 +77,19 @@ const Modal = () => {
                       textDecoration: task.completed ? "line-through" : "none",
                       color: task.completed ? "black" : "white",
                     }}
+                    className={style.modal_task_text}
                     onClick={() => toggleTask(task.id)}
                   >
                     {task.text}
                   </span>
-                  <input
-                    className={style.modal_task__complete}
-                    type="checkbox"
-                    checked={task.completed ? true : false}
-                    onClick={() => toggleTask(task.id)}
-                  />
+                  <label className={style.modal_task__label}>
+                    <input
+                      className={style.modal_task__checkbox}
+                      type="checkbox"
+                      checked={task.completed ? true : false}
+                      onClick={() => toggleTask(task.id)}
+                    />
+                  </label>
                   <button type="button" onClick={() => removeTask(task.id)}>
                     Удалить
                   </button>
