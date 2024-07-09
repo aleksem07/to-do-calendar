@@ -1,7 +1,7 @@
 import style from "@/styles/components/calendar-render.module.scss";
 import { MONTH_NAMES } from "../common/month-names";
 import useMonthStore from "../store/date-store";
-import useDaysInMonth from "../store/days-in-month";
+import useDaysInMonth from "../store/days-in-month-store";
 import useModalStore from "../store/modal-store";
 
 const CalendarRender = () => {

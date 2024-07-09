@@ -17,3 +17,15 @@
   max-width: 500px;
   width: 100%;
 }
+
+.modal_header {
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $color-brand;
+}
+
+.modal_content {
+  margin-top: 20px;
+}

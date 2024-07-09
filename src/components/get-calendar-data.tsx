@@ -2,7 +2,7 @@ import { MONTH_NAMES } from "../common/month-names";
 import SetLocalStorage from "./locale-storage/set-local-storage";
 import style from "@/styles/components/get-calendar-data.module.scss";
 import useMonthStore from "../store/date-store";
-import useDaysInMonth from "../store/days-in-month";
+import useDaysInMonth from "../store/days-in-month-store";
 
 const GetCalendarData = () => {
   const { year, month, currentDay, setMonth, setYear } = useMonthStore();
