@@ -1,3 +1,5 @@
+@import "@/styles/animation/modal.scss";
+
 .modal {
   position: fixed;
   top: 0;
@@ -19,6 +21,7 @@
   box-shadow: 0 0 50px -25px $color-light, inset 0 0 15px 0 $color-bcg-dark--70;
   outline: 2px solid $color-brand--add-light;
   outline-offset: -2px;
+  animation: modal 0.5s forwards;
 }
 
 .modal_header {
