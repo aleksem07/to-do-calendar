@@ -33,7 +33,12 @@ const CalendarRender = () => {
             key={day}
             onClick={() => handleDayClick(day + 1)}
           >
-            {day + 1} {getDayOfWeek(year, month, day + 1)}
+            <div className={style.day_and_weak}>
+              <span className={style.day_of_month}>
+                {getDayOfWeek(year, month, day + 1)}
+              </span>
+              <span className={style.day}>{day + 1}</span>
+            </div>
           </li>
         ))}
       </ul>
