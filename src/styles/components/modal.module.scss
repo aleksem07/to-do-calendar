@@ -16,6 +16,9 @@
   border-radius: 8px;
   max-width: 500px;
   width: 100%;
+  box-shadow: 0 0 50px -25px $color-light, inset 0 0 15px 0 $color-bcg-dark--70;
+  outline: 2px solid $color-brand--add-light;
+  outline-offset: -2px;
 }
 
 .modal_header {
