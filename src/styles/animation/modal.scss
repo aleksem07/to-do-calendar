@@ -1,0 +1,16 @@
+@keyframes modal {
+  0% {
+    transform: translateY(-115px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(5px);
+  }
+  80% {
+    transform: translateY(-1px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

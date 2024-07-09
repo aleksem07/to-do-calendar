@@ -1,0 +1,9 @@
+@import "@/styles/animation/loading.scss";
+
+.date {
+  opacity: 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  animation: date 0.5s 0.35s forwards;
+}

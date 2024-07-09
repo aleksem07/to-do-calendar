@@ -1,0 +1,100 @@
+@import "@/styles/animation/modal.scss";
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-bcg-dark--70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_container {
+  background: $color-brand--add;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 50px -25px $color-light, inset 0 0 15px 0 $color-bcg-dark--70;
+  outline: 2px solid $color-brand--add-light;
+  outline-offset: -2px;
+  animation: modal 0.5s forwards;
+}
+
+.modal_header {
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $color-brand;
+}
+
+.modal_tasks {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-bottom: 1px solid $color-brand;
+}
+
+.modal_task {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.modal_task_text {
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+.modal_task__label {
+  margin-left: auto;
+  position: relative;
+  cursor: pointer;
+}
+
+.modal_task__label:has(.modal_task__checkbox)::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  width: 20px;
+  height: 20px;
+  background-color: $color-brand;
+  transition: all 0.3s ease;
+}
+
+.modal_task__label:has(.modal_task__checkbox:checked)::before {
+  background-color: $color-bcg-dark--70;
+}
+
+.modal_task__label:has(.modal_task__checkbox:checked)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -5px;
+  width: 10px;
+  height: 20px;
+  transform: rotate(-45deg);
+  border-left: 3px solid $color-light;
+  border-bottom: 3px solid $color-light;
+}
+
+.modal_task__checkbox {
+  display: none;
+}
+
+.modal_add {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.modal_add_input {
+}
